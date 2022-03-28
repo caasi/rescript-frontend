@@ -6,7 +6,7 @@ import * as Belt_Option from "rescript/lib/es6/belt_Option.js";
 import * as Caml_option from "rescript/lib/es6/caml_option.js";
 import * as App$MyRescriptViteApp from "./App.bs.js";
 
-import './Index.css'
+import './index.css'
 ;
 
 ReactDom.render(React.createElement(React.StrictMode, {
