@@ -1,0 +1,27 @@
+{
+  "name": "my-rescript-vite-app",
+  "sources": {
+    "dir" : "src",
+    "subdirs" : true
+  },
+  "package-specs": {
+    "module": "es6",
+    "in-source": true
+  },
+  "suffix": ".bs.js",
+  "ppx-flags": [],
+  "reason": {
+    "react-jsx": 3
+  },
+  "namespace": true,
+  "bsc-flags": [
+    "-open Belt"
+  ],
+  "bs-dependencies": [
+    "@rescript/react"
+  ],
+  "refmt": 3,
+  "warnings": {
+    "error" : "+101"
+  }
+}
