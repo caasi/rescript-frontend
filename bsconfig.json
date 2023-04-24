@@ -9,19 +9,18 @@
     "in-source": true
   },
   "suffix": ".bs.js",
-  "ppx-flags": [],
-  "reason": {
-    "react-jsx": 3
+  "jsx": {
+    "version": 4,
+    "mode": "automatic"
   },
-  "namespace": true,
-  "bsc-flags": [
-    "-open Belt"
-  ],
   "bs-dependencies": [
-    "@rescript/react"
+    "@rescript/react",
+    "@rescript/core",
+    "rescript-webapi"
   ],
-  "refmt": 3,
-  "warnings": {
-    "error" : "+101"
-  }
+  "bs-dev-dependencies": [
+  ],
+  "bsc-flags": [
+    "-open RescriptCore"
+  ]
 }

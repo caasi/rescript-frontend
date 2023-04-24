@@ -1,8 +1,8 @@
-import react from "@vitejs/plugin-react"
 import { defineConfig } from "vite"
+import createReactPlugin from "@vitejs/plugin-react"
+import createReScriptPlugin from '@jihchi/vite-plugin-rescript';
 
-const config = defineConfig({
-  plugins: [react()],
+export default defineConfig({
+  plugins: [createReactPlugin(), createReScriptPlugin()],
 })
 
-export default config

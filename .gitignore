@@ -1,7 +1,8 @@
 # ReScript
-lib
+/lib/
 .merlin
 .bsb.lock
+*.bs.js
 
 # Intellij
 .idea
