@@ -5,7 +5,9 @@
 @react.component
 let make = () =>
   <div className="app">
-    <header> <img src={logo} className="logo" alt="logo" /> </header>
+    <header>
+      <img src={logo} className="logo" alt="logo" />
+    </header>
     <main>
       <p>
         {React.string("Edit")}

@@ -8,4 +8,3 @@ ReactDOM.querySelector("#root")
     <App />
   </React.StrictMode>,
 )
-
