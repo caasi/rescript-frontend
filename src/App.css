@@ -8,17 +8,6 @@
     justify-content: center;
 }
 
-.logo {
-    height: 30vmin;
-    pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-    .logo {
-        animation: logo-heart-beat infinite 2s linear;
-    }
-}
-
 header {
     display: flex;
     margin-bottom: 6vmin;

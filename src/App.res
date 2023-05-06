@@ -1,10 +1,25 @@
 %%raw("import './App.css'")
 
-@module("./logo.png") external logo: string = "default"
-
 @react.component
 let make = () => {
+  let headerRef = React.useRef(Js.Nullable.null)
   let (user, setUser) = React.useState(() => User.empty)
+
+  React.useEffect0(() => {
+    switch headerRef.current->Js.Nullable.toOption {
+    | Some(element) => Graph.initialize(element)
+    | None => ()
+    }
+
+    Some(
+      () => {
+        switch headerRef.current->Js.Nullable.toOption {
+        | Some(element) => Graph.destroy(element)
+        | None => ()
+        }
+      },
+    )
+  })
 
   React.useEffect0(() => {
     let _ = Api.getUser()->Js.Promise2.then(data => {
@@ -18,9 +33,7 @@ let make = () => {
   })
 
   <div className="app">
-    <header>
-      <img src={logo} className="logo" alt="logo" />
-    </header>
+    <header ref={ReactDOM.Ref.domRef(headerRef)} />
     <main>
       <p>
         {switch user->User.name {
