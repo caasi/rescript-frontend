@@ -7,14 +7,14 @@ let make = () => {
 
   React.useEffect0(() => {
     switch headerRef.current->Js.Nullable.toOption {
-    | Some(element) => Graph.initialize(element)
+    | Some(element) => GraphApp.initialize(element)
     | None => ()
     }
 
     Some(
       () => {
         switch headerRef.current->Js.Nullable.toOption {
-        | Some(element) => Graph.destroy(element)
+        | Some(element) => GraphApp.destroy(element)
         | None => ()
         }
       },
