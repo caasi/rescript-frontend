@@ -6,7 +6,7 @@ type t = {
 }
 
 module Decode = {
-  open Json.Decode
+  open! Json.Decode
 
   let node = object(field => {
     id: field.required(. "id", string),
