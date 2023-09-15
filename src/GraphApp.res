@@ -1,3 +1,7 @@
-@module("./graph") external initialize: Dom.element => unit = "initialize"
+type t
 
-@module("./graph") external destroy: Dom.element => unit = "destroy"
+@module("./graph") external initialize: Dom.element => t = "initialize"
+
+@module("./graph") external destroy: (t, Dom.element) => unit = "destroy"
+
+@module("./graph") external setData: (t, Graph.t) => t = "setData"

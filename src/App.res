@@ -3,24 +3,26 @@
 @react.component
 let make = () => {
   let headerRef = React.useRef(Js.Nullable.null)
+  let graphAppRef = React.useRef(None)
   let (user, setUser) = React.useState(() => User.empty)
-  let (graph, setGraph) = React.useState(() => None)
-
-  switch graph {
-  | Some(graph) => Js.log(graph)
-  | None => ()
-  }
 
   React.useEffect0(() => {
     switch headerRef.current->Js.Nullable.toOption {
-    | Some(element) => GraphApp.initialize(element)
+    | Some(element) => {
+        let app = GraphApp.initialize(element)
+        graphAppRef.current = Some(app)
+      }
     | None => ()
     }
 
     Some(
       () => {
         switch headerRef.current->Js.Nullable.toOption {
-        | Some(element) => GraphApp.destroy(element)
+        | Some(element) =>
+          switch graphAppRef.current {
+          | Some(graphApp) => graphApp->GraphApp.destroy(element)
+          | None => ()
+          }
         | None => ()
         }
       },
@@ -41,7 +43,13 @@ let make = () => {
   React.useEffect0(() => {
     let _ = Api.getGraph("f3e28676-a06e-424a-b143-a8470837fe0f")->Js.Promise2.then(data => {
       switch data->Json.decode(Graph.Decode.graph) {
-      | Ok(graph) => setGraph(_ => Some(graph))
+      | Ok(graph) =>
+        switch graphAppRef.current {
+        | Some(graphApp) => {
+            let _ = graphApp->GraphApp.setData(graph)
+          }
+        | None => ()
+        }
       | Error(err) => Js.log(err)
       }
       Js.Promise.resolve()
