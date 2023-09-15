@@ -19,11 +19,11 @@ export const initialize = (element) => {
   return app;
 }
 
-export const destroy = (app) => (element) => {
+export const destroy = (app, element) => {
   app.data = undefined;
 
   if (!app.pixi) return
-
+  element.removeChild(app.pixi.view);
   app.pixi.destroy(true, true);
   app.pixi = undefined;
 }
@@ -33,8 +33,7 @@ export const destroy = (app) => (element) => {
  *
  * @param {*} data The graph data.
  */
-export const setData = (app) => (data) => {
-  console.log(data)
+export const setData = (app, data) => {
   app.data = data;
   return app;
 }
