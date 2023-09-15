@@ -2,12 +2,12 @@
 
 @react.component
 let make = () => {
-  let headerRef = React.useRef(Js.Nullable.null)
+  let mainRef = React.useRef(Js.Nullable.null)
   let graphAppRef = React.useRef(None)
   let (user, setUser) = React.useState(() => User.empty)
 
   React.useEffect0(() => {
-    switch headerRef.current->Js.Nullable.toOption {
+    switch mainRef.current->Js.Nullable.toOption {
     | Some(element) => {
         let app = GraphApp.initialize(element)
         graphAppRef.current = Some(app)
@@ -17,10 +17,13 @@ let make = () => {
 
     Some(
       () => {
-        switch headerRef.current->Js.Nullable.toOption {
+        switch mainRef.current->Js.Nullable.toOption {
         | Some(element) =>
           switch graphAppRef.current {
-          | Some(graphApp) => graphApp->GraphApp.destroy(element)
+          | Some(graphApp) => {
+              graphApp->GraphApp.destroy(element)
+              graphAppRef.current = None
+            }
           | None => ()
           }
         | None => ()
@@ -58,30 +61,6 @@ let make = () => {
   })
 
   <div className="app">
-    <header ref={ReactDOM.Ref.domRef(headerRef)} />
-    <main>
-      <p>
-        {switch user->User.name {
-        | Some(name) => React.string(`Hello, ${name}! `)
-        | None => React.string("Hello! ")
-        }}
-        {React.string("Edit")}
-        <code> {React.string("src/App.res")} </code>
-        {React.string("and save to reload.")}
-      </p>
-    </main>
-    <footer>
-      <a href="https://rescript-lang.org/" target="_blank" rel="noopener noreferrer">
-        {React.string("Learn ReScript")}
-      </a>
-      <span className="separator"> {React.string("|")} </span>
-      <a href="https://vitejs.dev/" target="_blank" rel="noopener noreferrer">
-        {React.string("Learn Vite")}
-      </a>
-      <span className="separator"> {React.string("|")} </span>
-      <a href="https://prettier.io/" target="_blank" rel="noopener noreferrer">
-        {React.string("Learn Prettier")}
-      </a>
-    </footer>
+    <main ref={ReactDOM.Ref.domRef(mainRef)} />
   </div>
 }
