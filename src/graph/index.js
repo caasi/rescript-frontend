@@ -28,6 +28,12 @@ export const destroy = (app, element) => {
   app.pixi = undefined;
 }
 
+export const resize = (app, width, height) => {
+  if (!app.pixi) return app
+  app.pixi.renderer.resize(width, height);
+  return app
+}
+
 /**
  * Set graph data
  *

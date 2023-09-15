@@ -1,3 +1,5 @@
+open Webapi
+
 %%raw("import './App.css'")
 
 @react.component
@@ -7,6 +9,7 @@ let make = () => {
   let (user, setUser) = React.useState(() => User.empty)
 
   React.useEffect0(() => {
+    // initialize graph app
     switch mainRef.current->Js.Nullable.toOption {
     | Some(element) => {
         let app = GraphApp.initialize(element)
@@ -15,10 +18,33 @@ let make = () => {
     | None => ()
     }
 
+    // observe container size
+    let resizeObserver = ResizeObserver.make(entries => {
+      entries->Array.forEach(
+        entry => {
+          switch graphAppRef.current {
+          | Some(graphApp) => {
+              let rect = entry->ResizeObserver.ResizeObserverEntry.contentRect
+              let _ = graphApp->GraphApp.resize(rect->Dom.DomRect.width, rect->Dom.DomRect.height)
+            }
+          | None => ()
+          }
+        },
+      )
+    })
+    switch mainRef.current->Js.Nullable.toOption {
+    | Some(element) => {
+        let _ = resizeObserver->Webapi.ResizeObserver.observe(element)
+      }
+    | None => ()
+    }
+
+    // cleanup
     Some(
       () => {
         switch mainRef.current->Js.Nullable.toOption {
         | Some(element) =>
+          resizeObserver->Webapi.ResizeObserver.unobserve(element)
           switch graphAppRef.current {
           | Some(graphApp) => {
               graphApp->GraphApp.destroy(element)
@@ -60,7 +86,5 @@ let make = () => {
     None
   })
 
-  <div className="app">
-    <main ref={ReactDOM.Ref.domRef(mainRef)} />
-  </div>
+  <main className="app" ref={ReactDOM.Ref.domRef(mainRef)} />
 }
