@@ -1,17 +1,23 @@
 import * as PIXI from 'pixi.js';
+import NodeLayer from './NodeLayer.js';
 
 export const initialize = (element) => {
   const app = {
     pixi: undefined,
     data: undefined,
+    nodeLayer: undefined,
   }
 
   app.pixi = new PIXI.Application({ width: 360, height: 360, backgroundAlpha: 0 });
   element.appendChild(app.pixi.view);
 
   const container = new PIXI.Container();
-
   app.pixi.stage.addChild(container);
+
+  app.nodeLayer = new NodeLayer();
+  app.pixi.stage.addChild(app.nodeLayer);
+
+  app.pixi.stage.addEventListener('click', handleClick.bind(app));
 
   // Listen for animate update
   app.pixi.ticker.add(update.bind(app));
@@ -41,7 +47,13 @@ export const resize = (app, width, height) => {
  */
 export const setData = (app, data) => {
   app.data = data;
+  if (app.nodeLayer) app.nodeLayer.nodes = data.nodes;
   return app;
+}
+
+const handleClick = function (event) {
+  console.log('click')
+  const app = this;
 }
 
 const update = function (delta) {
