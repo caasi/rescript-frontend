@@ -1471,10 +1471,10 @@
   resolved "https://registry.yarnpkg.com/@glennsl/rescript-fetch/-/rescript-fetch-0.2.0.tgz#b72085d8bb19d8b9266aaf18d59c440ddceaf8dd"
   integrity sha512-0tsEqJ/6/WBm02prM4RYG+qpnNTaB8QKKIeQHXdDaE4C5YfA/nzjxMNW3CjsGIaEgyrAmmIXFS0kx24UjvOI6A==
 
-"@glennsl/rescript-json-combinators@^1.1.0":
-  version "1.1.0"
-  resolved "https://registry.yarnpkg.com/@glennsl/rescript-json-combinators/-/rescript-json-combinators-1.1.0.tgz#4b92435d1417f087e3a3ade71943ab8403f60424"
-  integrity sha512-RL3uYD92Una5cc1ygBO/+gK0L0fnldyWHOA5tpKOCleb5BtXQY9rgu1mzdGm6DLDsVFPqaFkT2egqFm26K/6Zg==
+"@glennsl/rescript-json-combinators@^1.2.1":
+  version "1.2.1"
+  resolved "https://registry.yarnpkg.com/@glennsl/rescript-json-combinators/-/rescript-json-combinators-1.2.1.tgz#3f641e4548ac1a664ce9acb140d5bba9ee1d5c9e"
+  integrity sha512-2Tw7NtrPerxN+9Y0u9bl9rUgqUqFcZkkRYELjHu9mIT/PDG3n8lO/osrwMIfoo6ze2FAur0Fw8hfDRJV8n3W3A==
 
 "@humanwhocodes/config-array@^0.9.2":
   version "0.9.5"
@@ -1985,10 +1985,10 @@
     schema-utils "^3.0.0"
     source-map "^0.7.3"
 
-"@rescript/core@^0.2.0":
-  version "0.2.0"
-  resolved "https://registry.yarnpkg.com/@rescript/core/-/core-0.2.0.tgz#9ad48a3a9551f13d6ca196a536084a78f9443959"
-  integrity sha512-gY0OmietZ1t+EflWwIJAR90sRNxjCrtlg3b3m4o//sQ84e/09S3fC+GErZjl/cdrTPKID6emOlVQ8hRNgF8qVQ==
+"@rescript/core@^0.5.0":
+  version "0.5.0"
+  resolved "https://registry.yarnpkg.com/@rescript/core/-/core-0.5.0.tgz#3e83e75aaa60f42f4279e0d184358f2db5d40955"
+  integrity sha512-Keqnpi+8VqyhCk/3aMwar8hJbNy2IsINAAfIFeQC65IIegCR0QXFDBpQxfVcmbbtoHq6HnW4B3RLm/9GCUJQhQ==
 
 "@rescript/react@^0.11.0":
   version "0.11.0"
@@ -7946,10 +7946,10 @@ requires-port@^1.0.0:
   resolved "https://registry.yarnpkg.com/requires-port/-/requires-port-1.0.0.tgz#925d2601d39ac485e091cf0da5c6e694dc3dcaff"
   integrity sha1-kl0mAdOaxIXgkc8NpcbmlNw9yv8=
 
-rescript-webapi@^0.8.0:
-  version "0.8.0"
-  resolved "https://registry.yarnpkg.com/rescript-webapi/-/rescript-webapi-0.8.0.tgz#35b76362ed6a32980fdf104dd8300b0703d424ca"
-  integrity sha512-PdjHqho8+kI7AIC3DlLgD99H8zzHphzpIhyv2skVtWaSJGK819+ZqWMC3mHEtSjlcFoYaLXliNt8sb6Taa2Mpg==
+rescript-webapi@^0.9.0:
+  version "0.9.0"
+  resolved "https://registry.yarnpkg.com/rescript-webapi/-/rescript-webapi-0.9.0.tgz#6445380bff048a873c3350a95a4434ef0bfb61cf"
+  integrity sha512-Q6I0OqaboCT2Z9VMXYM6pjzYKJani8NEiD6e9TFzRqb2nPjO2I0p4FG/8ZkYRr2JZlgTF/VsMQGuQ7+buHAbDg==
 
 rescript@^10.1.4:
   version "10.1.4"
