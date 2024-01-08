@@ -1,11 +1,13 @@
 import * as PIXI from 'pixi.js';
-import NodeLayer from './NodeLayer.js';
+import NodeLayer from './NodeLayer';
+import LinkLayer from './LinkLayer';
 
 export const initialize = (element) => {
   const app = {
     pixi: undefined,
     data: undefined,
     nodeLayer: undefined,
+    linkLayer: undefined,
   }
 
   app.pixi = new PIXI.Application({ width: 360, height: 360, backgroundAlpha: 0 });
@@ -16,6 +18,8 @@ export const initialize = (element) => {
 
   app.nodeLayer = new NodeLayer();
   app.pixi.stage.addChild(app.nodeLayer);
+  app.linkLayer = new LinkLayer();
+  app.pixi.stage.addChild(app.linkLayer);
 
   app.pixi.stage.addEventListener('click', handleClick.bind(app));
 
@@ -48,6 +52,10 @@ export const resize = (app, width, height) => {
 export const setData = (app, data) => {
   app.data = data;
   if (app.nodeLayer) app.nodeLayer.nodes = data.nodes;
+  if (app.linkLayer) {
+    app.linkLayer.nodes = data.nodes;
+    app.linkLayer.links = data.links;
+  }
   return app;
 }
 
