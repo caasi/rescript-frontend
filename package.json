@@ -39,11 +39,11 @@
     ]
   },
   "devDependencies": {
-    "@jihchi/vite-plugin-rescript": "^5.1.0",
-    "@vitejs/plugin-react": "^4.0.0",
+    "@jihchi/vite-plugin-rescript": "^5.5.0",
+    "@vitejs/plugin-react": "^4.2.1",
     "npm-run-all": "^4.1.5",
     "rescript": "^10.1.4",
-    "vite": "^4.3.1",
+    "vite": "^5.0.11",
     "web-vitals": "^2.1.0"
   }
 }
