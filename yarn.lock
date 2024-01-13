@@ -2029,10 +2029,10 @@
   resolved "https://registry.yarnpkg.com/@rescript/core/-/core-0.6.0.tgz#d2aae335c2a91dd68acce0ec11716861e08500d5"
   integrity sha512-D4ykxSpbmxbQa99kCg6/DztwCNt1tV3t11BLSOvJPHNLSIuQxfAU3ddgRruaH9LQSKOrMUjxQS9z6RdG5iFPoA==
 
-"@rescript/react@^0.11.0":
-  version "0.11.0"
-  resolved "https://registry.yarnpkg.com/@rescript/react/-/react-0.11.0.tgz#d2545546d823bdb8e6b59daa1790098d1666f79e"
-  integrity sha512-RzoAO+3cJwXE2D7yodMo4tBO2EkeDYCN/I/Sj/yRweI3S1CY1ZBOF/GMcVtjeIurJJt7KMveqQXTaRrqoGZBBg==
+"@rescript/react@^0.12.0":
+  version "0.12.0"
+  resolved "https://registry.yarnpkg.com/@rescript/react/-/react-0.12.0.tgz#d72f0561ec9c4ae04c5db0a752087190ba7d3f40"
+  integrity sha512-EBLsf5rD7sJOjgfLLGwuLw/hONszc3UtYnIVgv7OdTyUNR41/m4deVm62PI0agvr3kWakXz4KchKRSd+19/bRA==
 
 "@rollup/plugin-babel@^5.2.0":
   version "5.3.1"
@@ -8123,10 +8123,10 @@ rescript-webapi@^0.9.0:
   resolved "https://registry.yarnpkg.com/rescript-webapi/-/rescript-webapi-0.9.0.tgz#6445380bff048a873c3350a95a4434ef0bfb61cf"
   integrity sha512-Q6I0OqaboCT2Z9VMXYM6pjzYKJani8NEiD6e9TFzRqb2nPjO2I0p4FG/8ZkYRr2JZlgTF/VsMQGuQ7+buHAbDg==
 
-rescript@^10.1.4:
-  version "10.1.4"
-  resolved "https://registry.yarnpkg.com/rescript/-/rescript-10.1.4.tgz#0f37710d371f32a704f17b4e804f66ce3c79a305"
-  integrity sha512-FFKlS9AG/XrLepWsyw7B+A9DtQBPWEPDPDKghV831Y2KGbie+eeFBOS0xtRHp0xbt7S0N2Dm6hhX+kTZQ/3Ybg==
+rescript@^11.0.0:
+  version "11.0.0"
+  resolved "https://registry.yarnpkg.com/rescript/-/rescript-11.0.0.tgz#9a0b6fc998c360543c459aba49b77a572a0306cd"
+  integrity sha512-uIUwDZZmDUb7ymGkBiiGioxMg8hXh1mze/2k/qhYQcZGgi7PrLHQIW9AksM7gb9WnpjCAvFsA8U2VgC0nA468w==
 
 resolve-cwd@^3.0.0:
   version "3.0.0"

@@ -6,9 +6,9 @@ open Webapi
 let make = () => {
   let mainRef = React.useRef(Js.Nullable.null)
   let graphAppRef = React.useRef(None)
-  let (user, setUser) = React.useState(() => User.empty)
+  let (_, setUser) = React.useState(() => User.empty)
 
-  React.useEffect0(() => {
+  React.useEffect(() => {
     // initialize graph app
     switch mainRef.current->Js.Nullable.toOption {
     | Some(element) => {
@@ -56,9 +56,9 @@ let make = () => {
         }
       },
     )
-  })
+  }, [])
 
-  React.useEffect0(() => {
+  React.useEffect(() => {
     let _ = Api.getUser()->Js.Promise2.then(data => {
       switch data->Json.decode(User.Decode.user) {
       | Ok(user) => setUser(_ => user)
@@ -67,9 +67,9 @@ let make = () => {
       Js.Promise.resolve()
     })
     None
-  })
+  }, [])
 
-  React.useEffect0(() => {
+  React.useEffect(() => {
     let _ = Api.getGraph("f3e28676-a06e-424a-b143-a8470837fe0f")->Js.Promise2.then(data => {
       switch data->Json.decode(Graph.Decode.graph) {
       | Ok(graph) =>
@@ -84,7 +84,7 @@ let make = () => {
       Js.Promise.resolve()
     })
     None
-  })
+  }, [])
 
   <main className="app" ref={ReactDOM.Ref.domRef(mainRef)} />
 }
